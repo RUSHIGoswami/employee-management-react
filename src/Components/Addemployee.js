@@ -11,8 +11,6 @@ const Addemployee = ({
   setDepartment,
   experience,
   setExperience,
-  emp,
-  setEmp,
 }) => {
   const dispatch = useDispatch();
   const handleName = e => setEmployeeFullName(e.target.value);
@@ -28,9 +26,7 @@ const Addemployee = ({
       department: department,
       experience: experience,
     };
-    setEmp(empl => ({ ...empl, ...newEmployee }));
-    console.log(emp);
-    dispatch(addEmployee(emp));
+    dispatch(addEmployee(newEmployee));
     setEmployeeFullName("");
     setDateOfBirth("");
     setDepartment("");
@@ -61,6 +57,7 @@ const Addemployee = ({
                     placeholder="Enter your full name"
                     value={employeeFullName}
                     onChange={handleName}
+                    required
                   />
                 </div>
               </td>
@@ -74,6 +71,7 @@ const Addemployee = ({
                     placeholder="Enter your date of birth"
                     value={dateOfBirth}
                     onChange={handleDateOfBirth}
+                    required
                   />
                 </div>
               </td>
@@ -89,6 +87,7 @@ const Addemployee = ({
                     placeholder="Enter your department"
                     value={department}
                     onChange={handleDepartment}
+                    required
                   />
                 </div>
               </td>
@@ -102,6 +101,7 @@ const Addemployee = ({
                     placeholder="Enter your experience"
                     value={experience}
                     onChange={handleExperience}
+                    required
                   />
                 </div>
               </td>

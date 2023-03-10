@@ -1,4 +1,4 @@
-import { ADD_EMPLOYEE } from "./employeeTypes";
+import { ADD_EMPLOYEE, EDIT_EMPLOYEE } from "./employeeTypes";
 
 export const addEmployee = employee => {
   return {
@@ -6,3 +6,10 @@ export const addEmployee = employee => {
     payload: employee,
   };
 };
+
+export const editEmployee = id => {
+  return {
+    type: EDIT_EMPLOYEE,
+    payload: id,
+  }
+}

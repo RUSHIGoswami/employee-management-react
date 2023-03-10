@@ -14,13 +14,6 @@ function App() {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [department, setDepartment] = useState("");
   const [experience, setExperience] = useState(0);
-  const [emp, setEmp] = useState({
-    id: "",
-    fullName: "",
-    dateOfBirth: "",
-    department: "",
-    experience: 0,
-  });
   return (
     <Provider store={store}>
       <BrowserRouter style={styles}>
@@ -48,12 +41,11 @@ function App() {
                 setDepartment={setDepartment}
                 experience={experience}
                 setExperience={setExperience}
-                emp={emp}
-                setEmp={setEmp}
               />
             }
           />
-          <Route path="/edit" element={<Editemployee />} />
+          <Route path="/edit/:id" element={<Editemployee />} />
+          <Route path="/delete/:id" />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </BrowserRouter>
