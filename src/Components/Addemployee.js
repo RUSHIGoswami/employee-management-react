@@ -28,7 +28,7 @@ const Addemployee = ({
       department: department,
       experience: experience,
     };
-    setEmp({ ...newEmployee });
+    setEmp(empl => ({ ...empl, ...newEmployee }));
     console.log(emp);
     dispatch(addEmployee(emp));
     setEmployeeFullName("");

@@ -14,7 +14,13 @@ function App() {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [department, setDepartment] = useState("");
   const [experience, setExperience] = useState(0);
-  const [emp, setEmp] = useState({});
+  const [emp, setEmp] = useState({
+    id: "",
+    fullName: "",
+    dateOfBirth: "",
+    department: "",
+    experience: 0,
+  });
   return (
     <Provider store={store}>
       <BrowserRouter style={styles}>
