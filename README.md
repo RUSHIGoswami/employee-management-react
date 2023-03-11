@@ -17,7 +17,7 @@ This is simple Employee management project with React and Redux.
 
 ## Key Takeaways
 
-(includes difficult concepts for me):
+(Includes difficult concepts only):
 
 <ul>
 <li>useEffect hook</li>
