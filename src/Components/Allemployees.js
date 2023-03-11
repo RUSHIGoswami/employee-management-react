@@ -32,7 +32,10 @@ const Allemployees = () => {
                 <td>{employee.fullName}</td>
                 <td>{employee.dateOfBirth}</td>
                 <td>{employee.department}</td>
-                <td>{employee.experience} years</td>
+                <td>
+                  {employee.experience}{" "}
+                  {employee.experience > 1 ? `years` : `year`}
+                </td>
                 <td>
                   <Link to={`/employee-management-react/edit/${employee.id}`}>
                     Edit
