@@ -1,4 +1,4 @@
-import { ADD_EMPLOYEE, EDIT_EMPLOYEE } from './employeeTypes'
+import { ADD_EMPLOYEE, EDIT_EMPLOYEE, UPDATE_EMPLOYEE } from './employeeTypes';
 
 const initialState = {
 	Employees: [
@@ -10,7 +10,7 @@ const initialState = {
 			experience: 1,
 		},
 	],
-}
+};
 
 const employeeReducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -18,17 +18,26 @@ const employeeReducer = (state = initialState, action) => {
 			return {
 				...state,
 				Employees: [...state.Employees, action.payload],
-			}
+			};
 
 		case EDIT_EMPLOYEE:
-			let emp = state.Employees
-			console.log(emp[0].id)
-			console.log(emp.find((e) => e.id === ''))
-			return state
+			return {
+				...state.Employees.filter(emp => emp.id === action.payload),
+			};
 
+		case UPDATE_EMPLOYEE:
+			return {
+				...state,
+				Employees: state.Employees.map(employee => {
+					if (employee.id === action.payload.id) {
+						return { ...employee, ...action.payload };
+					}
+					return employee;
+				}),
+			};
 		default:
-			return state
+			return state;
 	}
-}
+};
 
-export default employeeReducer
+export default employeeReducer;

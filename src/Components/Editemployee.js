@@ -1,16 +1,43 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { editEmployee } from '../redux'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { editEmployee, updateEmployee } from '../redux';
+import shortid from 'shortid';
 
-const Editemployee = () => {
-	const params = useParams()
-	const dispatch = useDispatch()
-	const emp = dispatch(editEmployee(params.id))
-
+const Editemployee = (
+	employeeFullName,
+	setEmployeeFullName,
+	dateOfBirth,
+	setDateOfBirth,
+	department,
+	setDepartment,
+	experience,
+	setExperience
+) => {
+	const params = useParams();
+	const dispatch = useDispatch();
+	const emp = dispatch(editEmployee(params.id));
+	// const handleName = e => setEmployeeFullName(e.target.value);
+	// const handleDateOfBirth = e => setDateOfBirth(e.target.value);
+	// const handleDepartment = e => setDepartment(e.target.value);
+	// const handleExperience = e => setExperience(e.target.value);
+	const handleSubmit = e => {
+		e.preventDefault();
+		const updatedEmployee = {
+			fullName: employeeFullName,
+			dateOfBirth: dateOfBirth,
+			department: department,
+			experience: experience,
+		};
+		dispatch(updateEmployee(updatedEmployee));
+		setEmployeeFullName('');
+		setDateOfBirth('');
+		setDepartment('');
+		setExperience(0);
+	};
 	return (
 		<>
-			<form>
+			<form onSubmit={handleSubmit}>
 				<table>
 					<thead>
 						<tr>
@@ -29,9 +56,10 @@ const Editemployee = () => {
 									<br />
 									<input
 										type='text'
-										value={emp.fullName}
+										value={emp[0].fullName}
 										name='fullName'
 										placeholder='Enter your full name'
+										// onChange={handleName}
 									/>
 								</div>
 							</td>
@@ -41,9 +69,10 @@ const Editemployee = () => {
 									<br />
 									<input
 										type='date'
-										value={emp.dateOfBirth}
+										value={emp[0].dateOfBirth}
 										name='DOB'
 										placeholder='Enter your date of birth'
+										// onChange={handleDateOfBirth}
 									/>
 								</div>
 							</td>
@@ -55,9 +84,10 @@ const Editemployee = () => {
 									<br />
 									<input
 										type='text'
-										value={emp.department}
+										value={emp[0].department}
 										name='department'
 										placeholder='Enter your department'
+										// onChange={handleDepartment}
 									/>
 								</div>
 							</td>
@@ -67,9 +97,10 @@ const Editemployee = () => {
 									<br />
 									<input
 										type='number'
-										value={emp.experience}
+										value={emp[0].experience}
 										name='experience'
 										placeholder='Enter your experience'
+										// onChange={handleExperience}
 									/>
 								</div>
 							</td>
@@ -83,7 +114,7 @@ const Editemployee = () => {
 				</table>
 			</form>
 		</>
-	)
-}
+	);
+};
 
-export default Editemployee
+export default Editemployee;
