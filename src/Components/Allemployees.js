@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteEmployee } from "../redux";
 const Allemployees = () => {
   const employees = useSelector(state => state.Employees);
+  const [deleteEmp, setDeleteEmp] = useState("");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (deleteEmp) {
+      dispatch(deleteEmployee(deleteEmp));
+      setDeleteEmp("");
+    }
+  }, [deleteEmp, dispatch]);
+
   return (
     <>
       <table border={1}>
@@ -27,7 +37,7 @@ const Allemployees = () => {
                   <Link to={`/edit/${employee.id}`}>Edit</Link>
                 </td>
                 <td>
-                  <Link to={`/delete/${employee.id}`}>Delete</Link>
+                  <Link onClick={() => setDeleteEmp(employee.id)}>Delete</Link>
                 </td>
               </tr>
             );

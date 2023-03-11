@@ -1,22 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import shortid from "shortid";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../redux/Employees/employeeActions";
-const Addemployee = ({
-  employeeFullName,
-  setEmployeeFullName,
-  dateOfBirth,
-  setDateOfBirth,
-  department,
-  setDepartment,
-  experience,
-  setExperience,
-}) => {
-  const dispatch = useDispatch();
+import { useNavigate } from "react-router-dom";
+const Addemployee = () => {
+  const [employeeFullName, setEmployeeFullName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [department, setDepartment] = useState("");
+  const [experience, setExperience] = useState(0);
+
+  const navigate = useNavigate();
   const handleName = e => setEmployeeFullName(e.target.value);
   const handleDateOfBirth = e => setDateOfBirth(e.target.value);
   const handleDepartment = e => setDepartment(e.target.value);
   const handleExperience = e => setExperience(e.target.value);
+
+  const dispatch = useDispatch();
+
   const handleSubmit = e => {
     e.preventDefault();
     const newEmployee = {
@@ -31,6 +31,8 @@ const Addemployee = ({
     setDateOfBirth("");
     setDepartment("");
     setExperience(0);
+    alert("Employee Added");
+    navigate("/");
   };
   return (
     <>
