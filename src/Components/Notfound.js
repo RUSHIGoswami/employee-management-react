@@ -1,4 +1,6 @@
 import React from "react";
+
+// For handling un-registered routes
 const Notfound = () => {
   return (
     <>

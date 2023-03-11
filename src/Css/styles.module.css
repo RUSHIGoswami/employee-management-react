@@ -1,8 +1,11 @@
+/* Resetting the margins and paddings */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+/* Body css */
 body {
   display: flex;
   height: 100vh;
@@ -30,6 +33,7 @@ nav ul li {
   margin: 1em;
 }
 
+/* Links css */
 a {
   text-decoration: none;
   color: #fff;
@@ -37,10 +41,12 @@ a {
   border-radius: 5px;
 }
 
+/* link focus css */
 a:focus {
   outline: none;
 }
 
+/* link hover css */
 a:hover {
   background: #fff;
   color: #000;
@@ -63,6 +69,7 @@ input {
   height: 2em;
 }
 
+/* input focus css */
 input:focus {
   outline: none;
 }
@@ -73,18 +80,23 @@ table {
   margin: 10px auto;
 }
 
+/* table heading cells and data cells css */
 th,
 td {
   padding: 10px;
 }
+
+/* Css for links inside of data cells  */
 td a {
   color: #000;
   text-decoration: underline;
 }
 
+/* Css for link hover inside of data cells */
 td a:hover {
   color: #00f;
 }
+
 /* Table header */
 h3 {
   font-size: 18px;
@@ -103,6 +115,8 @@ button {
   cursor: pointer;
   margin: 0 auto;
 }
+
+/* Css for button hover */
 button:hover {
   color: #fff;
   background: #05f;
