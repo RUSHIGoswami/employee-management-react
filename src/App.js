@@ -22,9 +22,15 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<Allemployees />} />
-          <Route path="/add" element={<Addemployee />} />
-          <Route path="/edit/:id" element={<Editemployee />} />
+          <Route path="/employee-management-react" element={<Allemployees />} />
+          <Route
+            path="/employee-management-react/add"
+            element={<Addemployee />}
+          />
+          <Route
+            path="/employee-management-react/edit/:id"
+            element={<Editemployee />}
+          />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </BrowserRouter>
