@@ -1,6 +1,6 @@
 ## Description
 
-This is simple Employee management project with React and Redux.
+This is simple Employee management project with React and Redux.<br />
 Here is deployed link - [employee-management-react](https://rushigoswami.github.io/employee-management-react/)
 
 ## Available Scripts
