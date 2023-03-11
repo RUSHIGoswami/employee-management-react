@@ -32,7 +32,7 @@ const Addemployee = () => {
     setDepartment("");
     setExperience(0);
     alert("Employee Added");
-    navigate("/");
+    navigate("/employee-management-react");
   };
   return (
     <>
