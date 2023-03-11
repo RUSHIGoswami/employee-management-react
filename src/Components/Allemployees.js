@@ -34,7 +34,9 @@ const Allemployees = () => {
                 <td>{employee.department}</td>
                 <td>{employee.experience} years</td>
                 <td>
-                  <Link to={`/edit/${employee.id}`}>Edit</Link>
+                  <Link to={`/employee-management-react/edit/${employee.id}`}>
+                    Edit
+                  </Link>
                 </td>
                 <td>
                   <Link onClick={() => setDeleteEmp(employee.id)}>Delete</Link>

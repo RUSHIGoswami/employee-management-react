@@ -14,10 +14,10 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">All Employees</Link>
+              <Link to="/employee-management-react">All Employees</Link>
             </li>
             <li>
-              <Link to="/add">Add Employee</Link>
+              <Link to="/employee-management-react/add">Add Employee</Link>
             </li>
           </ul>
         </nav>

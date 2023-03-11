@@ -29,12 +29,12 @@ const Editemployee = () => {
       experience: experience,
     };
     dispatch(updateEmployee(updatedEmployee));
+    alert("Employee details updated");
     setEmployeeFullName("");
     setDateOfBirth("");
     setDepartment("");
     setExperience(0);
-    alert("Employee details updated");
-    navigate("/");
+    navigate("/employee-management-react");
   };
   return (
     <>
